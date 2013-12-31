@@ -1,0 +1,13 @@
+<script>
+    var worker = new Worker('worker.js');
+    worker.postMessage({});
+    worker.onmessage = function (e) {
+        if (e.data.complete) {
+            worker.postMessage({
+                color: '#fef245'
+            });
+        } else {
+            alert(e.data.color);
+        }
+    };
+</script>
